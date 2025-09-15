@@ -1,34 +1,44 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      <h3>Booking</h3>
-      <nav>
-        <a href="/index.html">Login</a>
-        <a class="active" href="/dashboard.html">Dashboard</a>
-        <a href="/parking.html">Parking</a>
-        <a href="/meeting.html">Meeting</a>
-        <a href="/logs.html">Logs</a>
-        <a href="/admin.html">Admin</a>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded bg-gray-700" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/admin.html">Admin</a>
       </nav>
     </aside>
-    <main>
-      <h1>Dashboard</h1>
-      <div class="grid">
-        <div class="stat card"><h3>Active Parking Slots</h3><div id="statSlots">-</div></div>
-        <div class="stat card"><h3>Remaining Slots (now)</h3><div id="statRemain">-</div></div>
-        <div class="stat card"><h3>Total Meeting Rooms</h3><div id="statRooms">-</div></div>
-        <div class="stat card"><h3>Today Meetings</h3><div id="statMeetings">-</div></div>
-      </div>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+<div class="grid md:grid-cols-4 gap-4">
+  <div class="bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold">Active Parking Slots</h3><div id="statSlots" class="text-2xl font-bold mt-2">-</div></div>
+  <div class="bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold">Remaining Slots (now)</h3><div id="statRemain" class="text-2xl font-bold mt-2">-</div></div>
+  <div class="bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold">Total Meeting Rooms</h3><div id="statRooms" class="text-2xl font-bold mt-2">-</div></div>
+  <div class="bg-white p-5 rounded-2xl shadow"><h3 class="font-semibold">Today Meetings</h3><div id="statMeetings" class="text-2xl font-bold mt-2">-</div></div>
+</div>
+<script src="/assets/js/dashboard.js"></script>
+
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/dashboard.js"></script>
 </body>
 </html>

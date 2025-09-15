@@ -29,8 +29,8 @@ router.post('/book', authRequired, async (req, res) => {
     const overlapping = await MeetingBooking.count({
       where: {
         room_id,
-        start_time: { [Symbol.for('lt')]: new Date(end_time) },
-        end_time: { [Symbol.for('gt')]: new Date(start_time) }
+        start_time: { [Op.lt]: new Date(end_time) },
+        end_time: { [Op.gt]: new Date(start_time) }
       }
     });
     if (overlapping > 0) return res.status(400).json({ error: 'Room already booked in that time range' });
@@ -53,3 +53,48 @@ router.post('/book', authRequired, async (req, res) => {
 });
 
 export default router;
+
+
+router.patch('/bookings/:id', authRequired, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const { title, start_time, end_time } = req.body;
+
+    const booking = await MeetingBooking.findByPk(id);
+    if (!booking) return res.status(404).json({ error: 'Not found' });
+
+    // overlap check (same room)
+    const overlapping = await MeetingBooking.count({
+      where: {
+        id: { [Op.ne]: id },
+        room_id: booking.room_id,
+        start_time: { [Op.lt]: new Date(end_time) },
+        end_time: { [Op.gt]: new Date(start_time) }
+      }
+    });
+    if (overlapping > 0) return res.status(400).json({ error: 'Room already booked in that time range' });
+
+    if (title) booking.title = title;
+    if (start_time) booking.start_time = start_time;
+    if (end_time) booking.end_time = end_time;
+    await booking.save();
+
+    await AuditLog.create({ user_id: req.user.id, action: 'meeting_reschedule', detail: JSON.stringify({ booking_id: booking.id }) });
+    res.json({ ok: true, booking });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});
+
+router.delete('/bookings/:id', authRequired, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id, 10);
+    const booking = await MeetingBooking.findByPk(id);
+    if (!booking) return res.status(404).json({ error: 'Not found' });
+    await booking.destroy();
+    await AuditLog.create({ user_id: req.user.id, action: 'meeting_cancel', detail: JSON.stringify({ booking_id: id }) });
+    res.json({ ok: true });
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
+});

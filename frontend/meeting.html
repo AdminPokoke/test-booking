@@ -1,50 +1,58 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Meeting</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      <h3>Booking</h3>
-      <nav>
-        <a href="/index.html">Login</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/parking.html">Parking</a>
-        <a class="active" href="/meeting.html">Meeting</a>
-        <a href="/logs.html">Logs</a>
-        <a href="/admin.html">Admin</a>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded bg-gray-700" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/admin.html">Admin</a>
       </nav>
     </aside>
-    <main>
-      <h1>Meeting Booking</h1>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Meeting Booking</h1>
 
-      <div class="card">
-        <h3>Google Sign‑In</h3>
-        <p>Anda harus login Google untuk membuat booking di kalender.</p>
-        <div id="googleEmail" class="badge">Belum login Google</div>
-        <button id="btnGoogleLogin">Login Google</button>
-      </div>
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="bg-white shadow rounded-2xl p-6 md:col-span-1">
+    <h3 class="font-semibold mb-2">Google Sign-In</h3>
+    <p class="text-sm text-gray-600 mb-2">Login Google wajib untuk membuat/mengubah/menghapus event.</p>
+    <div id="googleEmail" class="inline-block px-3 py-1 rounded-full bg-gray-200 text-sm mb-3">Belum login Google</div>
+    <button id="btnGoogleLogin" class="w-full bg-gray-900 text-white rounded-xl py-2">Login Google</button>
 
-      <div class="card">
-        <h3>Pilih Ruang</h3>
-        <select id="roomSelect"></select>
-      </div>
-
-      <div class="card">
-        <h3>Kalender</h3>
-        <div id="calendar"></div>
-      </div>
-    </main>
+    <div class="mt-6">
+      <h3 class="font-semibold mb-2">Pilih Ruang</h3>
+      <select id="roomSelect" class="w-full border rounded-xl p-3"></select>
+    </div>
   </div>
 
+  <div class="bg-white shadow rounded-2xl p-6 md:col-span-2">
+    <h3 class="font-semibold mb-3">Kalender</h3>
+    <div id="calendar"></div>
+    <p class="text-xs text-gray-500 mt-3">Tip: drag & drop untuk reschedule, klik event untuk cancel.</p>
+  </div>
+</div>
+<script src="/assets/js/meeting.js"></script>
+
+    </main>
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
   <script src="https://apis.google.com/js/api.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/meeting.js"></script>
 </body>
 </html>

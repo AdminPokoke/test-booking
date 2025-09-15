@@ -9,6 +9,7 @@ import parkingRoutes from './routes/parking.js';
 import meetingRoutes from './routes/meeting.js';
 import adminRoutes from './routes/admin.js';
 import logsRoutes from './routes/logs.js';
+import reportsRoutes from './routes/reports.js';
 import dashboardRoutes from './routes/dashboard.js';
 import { authRequired, currentUser } from './middleware/auth.js';
 import bcrypt from 'bcryptjs';
@@ -30,6 +31,7 @@ app.use('/api/parking', parkingRoutes);
 app.use('/api/meeting', meetingRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/logs', logsRoutes);
+app.use('/api/reports', reportsRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
 // Fallback to index.html for simple SPA-like navigation

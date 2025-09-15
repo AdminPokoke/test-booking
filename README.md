@@ -26,3 +26,9 @@ Stack: **Node.js (Express) + Sequelize**, **MySQL** (users & parking), **Postgre
 ## Notes
 - Client uses **Google Identity Services** (token client) + `gapi` to call Calendar API directly (insert events). The backend stores the meeting booking metadata and enforces room availability. This keeps server simple for local setups.
 - Slack webhook (optional): if set in **Admin → Settings**, the app will POST a message when a new booking is created.
+
+
+## New Features
+- **Meeting Cancel/Reschedule**: drag & drop event untuk reschedule; click event untuk cancel (menghapus juga dari Google Calendar).
+- **Parking Slot Calendar**: tampilan FullCalendar per slot untuk melihat availability.
+- **Monthly Reports**: halaman **Reports** untuk ekspor **CSV**, **Excel (.xlsx)**, atau **PDF** (per bulan, parking/meeting).

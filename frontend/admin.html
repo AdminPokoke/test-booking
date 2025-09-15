@@ -1,55 +1,62 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      <h3>Booking</h3>
-      <nav>
-        <a href="/index.html">Login</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/parking.html">Parking</a>
-        <a href="/meeting.html">Meeting</a>
-        <a href="/logs.html">Logs</a>
-        <a class="active" href="/admin.html">Admin</a>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded bg-gray-700" href="/admin.html">Admin</a>
       </nav>
     </aside>
-    <main>
-      <h1>Admin</h1>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Admin</h1>
+<div class="grid md:grid-cols-3 gap-6">
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Parking Slots</h3>
+    <input id="newSlot" placeholder="Kode slot, mis. P-11" class="w-full border rounded-xl p-3 mb-2"/>
+    <button id="btnAddSlot" class="w-full bg-gray-900 text-white rounded-xl py-2 mb-3">Tambah Slot</button>
+    <ul id="slotList" class="list-disc pl-5 text-sm"></ul>
+  </div>
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Meeting Rooms</h3>
+    <input id="newRoom" placeholder="Nama ruang, mis. R-Delta" class="w-full border rounded-xl p-3 mb-2"/>
+    <input id="newRoomCap" type="number" placeholder="Kapasitas" class="w-full border rounded-xl p-3 mb-2"/>
+    <button id="btnAddRoom" class="w-full bg-gray-900 text-white rounded-xl py-2 mb-3">Tambah Ruang</button>
+    <ul id="roomList" class="list-disc pl-5 text-sm"></ul>
+  </div>
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Settings</h3>
+    <label class="text-sm">Slack Webhook URL</label>
+    <input id="slackUrl" placeholder="https://hooks.slack.com/services/..." class="w-full border rounded-xl p-3 mb-2"/>
+    <label class="text-sm">Google Client ID</label>
+    <input id="googleClientId" placeholder="xxx.apps.googleusercontent.com" class="w-full border rounded-xl p-3 mb-2"/>
+    <button id="btnSaveSettings" class="w-full bg-gray-900 text-white rounded-xl py-2">Simpan</button>
+    <div id="settingsSaved" class="inline-block mt-2 text-sm"></div>
+  </div>
+</div>
+<script src="/assets/js/admin.js"></script>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Parking Slots</h3>
-          <input id="newSlot" placeholder="Kode slot, mis. P-11" />
-          <button id="btnAddSlot">Tambah Slot</button>
-          <ul id="slotList"></ul>
-        </div>
-
-        <div class="card">
-          <h3>Meeting Rooms</h3>
-          <input id="newRoom" placeholder="Nama ruang, mis. R-Delta" />
-          <input id="newRoomCap" type="number" placeholder="Kapasitas (angka)" />
-          <button id="btnAddRoom">Tambah Ruang</button>
-          <ul id="roomList"></ul>
-        </div>
-
-        <div class="card">
-          <h3>Settings</h3>
-          <label>Slack Webhook URL</label>
-          <input id="slackUrl" placeholder="https://hooks.slack.com/services/..." />
-          <label>Google Client ID</label>
-          <input id="googleClientId" placeholder="xxx.apps.googleusercontent.com" />
-          <button id="btnSaveSettings">Simpan</button>
-          <div id="settingsSaved" class="badge"></div>
-        </div>
-      </div>
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

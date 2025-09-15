@@ -1,42 +1,55 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parking</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      <h3>Booking</h3>
-      <nav>
-        <a href="/index.html">Login</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a class="active" href="/parking.html">Parking</a>
-        <a href="/meeting.html">Meeting</a>
-        <a href="/logs.html">Logs</a>
-        <a href="/admin.html">Admin</a>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded bg-gray-700" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/admin.html">Admin</a>
       </nav>
     </aside>
-    <main>
-      <h1>Parking Booking</h1>
-      <div class="card">
-        <h3>Book a Slot</h3>
-        <label>Slot</label>
-        <select id="slotSelect"></select>
-        <label>Start</label>
-        <input id="pStart" type="datetime-local" />
-        <label>End</label>
-        <input id="pEnd" type="datetime-local" />
-        <button id="btnBookParking">Book</button>
-      </div>
-      <div class="card">
-        <h3>Stats</h3>
-        <div id="parkingStats"></div>
-      </div>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Parking Booking</h1>
+<div class="grid md:grid-cols-2 gap-6">
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Book a Slot</h3>
+    <label class="text-sm">Slot</label>
+    <select id="slotSelect" class="w-full border rounded-xl p-3 mb-3"></select>
+    <label class="text-sm">Start</label>
+    <input id="pStart" type="datetime-local" class="w-full border rounded-xl p-3 mb-3"/>
+    <label class="text-sm">End</label>
+    <input id="pEnd" type="datetime-local" class="w-full border rounded-xl p-3 mb-3"/>
+    <button id="btnBookParking" class="w-full bg-gray-900 text-white rounded-xl py-3">Book</button>
+    <div class="mt-4 text-sm"><b>Stats:</b> <span id="parkingStats"></span></div>
+  </div>
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Kalendar Slot (Availability)</h3>
+    <div id="parkingCalendar"></div>
+  </div>
+</div>
+<script src="/assets/js/parking.js"></script>
+
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/parking.js"></script>
 </body>
 </html>

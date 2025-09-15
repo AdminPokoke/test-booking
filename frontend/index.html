@@ -4,39 +4,50 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Local Booking App</title>
-  <link rel="stylesheet" href="/assets/css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
 </head>
-<body>
-  <div class="app">
-    <aside class="sidebar">
-      <h3>Booking</h3>
-      <nav>
-        <a href="/index.html">Login</a>
-        <a href="/dashboard.html">Dashboard</a>
-        <a href="/parking.html">Parking</a>
-        <a href="/meeting.html">Meeting</a>
-        <a href="/logs.html">Logs</a>
-        <a href="/admin.html">Admin</a>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded bg-gray-700" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/admin.html">Admin</a>
       </nav>
     </aside>
-    <main>
-      <h1>Login / Register</h1>
-      <div class="card">
-        <h3>Login</h3>
-        <input id="loginEmail" type="email" placeholder="Email" />
-        <input id="loginPassword" type="password" placeholder="Password" />
-        <button id="btnLogin">Login</button>
-      </div>
-      <div class="card">
-        <h3>Register</h3>
-        <input id="regName" type="text" placeholder="Nama" />
-        <input id="regEmail" type="email" placeholder="Email" />
-        <input id="regPassword" type="password" placeholder="Password" />
-        <button id="btnRegister">Register</button>
-      </div>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Login / Register</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Login</h3>
+    <input id="loginEmail" type="email" placeholder="Email" class="w-full border rounded-xl p-3 mb-3"/>
+    <input id="loginPassword" type="password" placeholder="Password" class="w-full border rounded-xl p-3 mb-3"/>
+    <button id="btnLogin" class="w-full bg-gray-900 text-white rounded-xl py-3">Login</button>
+  </div>
+  <div class="bg-white shadow rounded-2xl p-6">
+    <h3 class="font-semibold mb-3">Register</h3>
+    <input id="regName" type="text" placeholder="Nama" class="w-full border rounded-xl p-3 mb-3"/>
+    <input id="regEmail" type="email" placeholder="Email" class="w-full border rounded-xl p-3 mb-3"/>
+    <input id="regPassword" type="password" placeholder="Password" class="w-full border rounded-xl p-3 mb-3"/>
+    <button id="btnRegister" class="w-full bg-gray-900 text-white rounded-xl py-3">Register</button>
+  </div>
+</div>
+<script src="/assets/js/auth.js"></script>
+
     </main>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="/assets/js/common.js"></script>
-  <script src="/assets/js/auth.js"></script>
 </body>
 </html>

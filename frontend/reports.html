@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="min-h-screen flex">
+    
+    <aside class="w-60 bg-gray-900 text-white p-5">
+      <h3 class="text-xl font-semibold mb-4">Booking</h3>
+      <nav class="flex flex-col gap-2">
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/index.html">Login</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/dashboard.html">Dashboard</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/parking.html">Parking</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/meeting.html">Meeting</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/logs.html">Logs</a>
+        <a class="px-3 py-2 rounded bg-gray-700" href="/reports.html">Reports</a>
+        <a class="px-3 py-2 rounded hover:bg-gray-800" href="/admin.html">Admin</a>
+      </nav>
+    </aside>
+    
+    <main class="flex-1 p-8">
+      
+<h1 class="text-2xl font-bold mb-6">Reports</h1>
+<div class="bg-white shadow rounded-2xl p-6 max-w-xl">
+  <label class="text-sm">Jenis</label>
+  <select id="repType" class="w-full border rounded-xl p-3 mb-3">
+    <option value="all">Semua</option>
+    <option value="parking">Parking</option>
+    <option value="meeting">Meeting</option>
+  </select>
+  <label class="text-sm">Bulan</label>
+  <input id="repMonth" type="month" class="w-full border rounded-xl p-3 mb-3"/>
+  <div class="flex gap-2">
+    <button data-fmt="csv" class="btnExport bg-gray-900 text-white rounded-xl px-4 py-2">Export CSV</button>
+    <button data-fmt="xlsx" class="btnExport bg-gray-900 text-white rounded-xl px-4 py-2">Export Excel (.xlsx)</button>
+    <button data-fmt="pdf" class="btnExport bg-gray-900 text-white rounded-xl px-4 py-2">Export PDF</button>
+  </div>
+</div>
+<script>
+(async () => {
+  await requireAuth();
+  if (window.currentUser.role !== 'admin') { alert('Admin only'); window.location = '/dashboard.html'; return; }
+  document.querySelectorAll('.btnExport').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const type = document.getElementById('repType').value;
+      const month = document.getElementById('repMonth').value;
+      const fmt = btn.dataset.fmt;
+      if (!month) return alert('Pilih bulan');
+      window.location = `/api/reports/monthly?type=${encodeURIComponent(type)}&month=${encodeURIComponent(month)}&format=${encodeURIComponent(fmt)}`;
+    });
+  });
+})();
+</script>
+
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.14/index.global.min.js"></script>
+  <script src="https://apis.google.com/js/api.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="/assets/js/common.js"></script>
+</body>
+</html>
