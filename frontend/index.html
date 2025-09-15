@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Booking App</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h3>Booking</h3>
+      <nav>
+        <a href="/index.html">Login</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/parking.html">Parking</a>
+        <a href="/meeting.html">Meeting</a>
+        <a href="/logs.html">Logs</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Login / Register</h1>
+      <div class="card">
+        <h3>Login</h3>
+        <input id="loginEmail" type="email" placeholder="Email" />
+        <input id="loginPassword" type="password" placeholder="Password" />
+        <button id="btnLogin">Login</button>
+      </div>
+      <div class="card">
+        <h3>Register</h3>
+        <input id="regName" type="text" placeholder="Nama" />
+        <input id="regEmail" type="email" placeholder="Email" />
+        <input id="regPassword" type="password" placeholder="Password" />
+        <button id="btnRegister">Register</button>
+      </div>
+    </main>
+  </div>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h3>Booking</h3>
+      <nav>
+        <a href="/index.html">Login</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a href="/parking.html">Parking</a>
+        <a href="/meeting.html">Meeting</a>
+        <a href="/logs.html">Logs</a>
+        <a class="active" href="/admin.html">Admin</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Admin</h1>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Parking Slots</h3>
+          <input id="newSlot" placeholder="Kode slot, mis. P-11" />
+          <button id="btnAddSlot">Tambah Slot</button>
+          <ul id="slotList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Meeting Rooms</h3>
+          <input id="newRoom" placeholder="Nama ruang, mis. R-Delta" />
+          <input id="newRoomCap" type="number" placeholder="Kapasitas (angka)" />
+          <button id="btnAddRoom">Tambah Ruang</button>
+          <ul id="roomList"></ul>
+        </div>
+
+        <div class="card">
+          <h3>Settings</h3>
+          <label>Slack Webhook URL</label>
+          <input id="slackUrl" placeholder="https://hooks.slack.com/services/..." />
+          <label>Google Client ID</label>
+          <input id="googleClientId" placeholder="xxx.apps.googleusercontent.com" />
+          <button id="btnSaveSettings">Simpan</button>
+          <div id="settingsSaved" class="badge"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>

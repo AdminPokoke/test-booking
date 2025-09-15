@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parking</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <h3>Booking</h3>
+      <nav>
+        <a href="/index.html">Login</a>
+        <a href="/dashboard.html">Dashboard</a>
+        <a class="active" href="/parking.html">Parking</a>
+        <a href="/meeting.html">Meeting</a>
+        <a href="/logs.html">Logs</a>
+        <a href="/admin.html">Admin</a>
+      </nav>
+    </aside>
+    <main>
+      <h1>Parking Booking</h1>
+      <div class="card">
+        <h3>Book a Slot</h3>
+        <label>Slot</label>
+        <select id="slotSelect"></select>
+        <label>Start</label>
+        <input id="pStart" type="datetime-local" />
+        <label>End</label>
+        <input id="pEnd" type="datetime-local" />
+        <button id="btnBookParking">Book</button>
+      </div>
+      <div class="card">
+        <h3>Stats</h3>
+        <div id="parkingStats"></div>
+      </div>
+    </main>
+  </div>
+  <script src="/assets/js/common.js"></script>
+  <script src="/assets/js/parking.js"></script>
+</body>
+</html>
