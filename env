@@ -1,0 +1,22 @@
+# ====== Server ======
+PORT=8080
+JWT_SECRET=pwP6aasApUKxWzWThOVKh0kY7bd3bpLtB5wibTvncUFmSF7i
+BASE_URL=http://localhost:8080
+
+# ====== MySQL (Users & Parking) ======
+MYSQL_HOST=mysql
+MYSQL_PORT=3306
+MYSQL_DB=booking_users_parking
+MYSQL_USER=root
+MYSQL_PASSWORD=rootpass
+
+# ====== PostgreSQL (Meeting & Logs) ======
+PG_HOST=postgres
+PG_PORT=5432
+PG_DB=booking_meeting_logs
+PG_USER=postgres
+PG_PASSWORD=pgpass
+
+# ====== Optional defaults ======
+DEFAULT_ADMIN_EMAIL=admin@example.com
+DEFAULT_ADMIN_PASSWORD=admin123
